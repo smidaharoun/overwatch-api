@@ -11,7 +11,7 @@ class IndexController extends Controller
     {
         $response = [];
         $routes = \Route::getRoutes()->get('GET');
-        usort($routes, function($a, $b) {
+        uasort($routes, function($a, $b) {
             return strcmp($a->getName(), $b->getName());
         });
         foreach ($routes as $path => $route) {
