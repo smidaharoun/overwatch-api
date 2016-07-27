@@ -9,12 +9,16 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $routes = [];
-        foreach (\Route::getRoutes()->get('GET') as $path => $route) {
+        $response = [];
+        $routes = \Route::getRoutes()->get('GET');
+        usort($routes, function($a, $b) {
+            return strcmp($a->getName(), $b->getName());
+        });
+        foreach ($routes as $path => $route) {
             if (in_array('api', $route->middleware())) {
-                $routes[$route->getName()] = app('url')->to('/') . '/' . $path;
+                $response[$route->getName()] = app('url')->to('/') . '/' . $path;
             }
         }
-        return $routes;
+        return $response;
     }
 }
