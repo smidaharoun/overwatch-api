@@ -17,23 +17,24 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'api', 'middleware' => 'api'], function() {
     Route::group(['prefix' => 'v1'], function () {
-        Route::resource('hero', 'Api\HeroController', ['names' => [
+        Route::get('/', ['uses' => 'Api\IndexController@index', 'as' => 'index']);
+        Route::resource('hero', 'Api\HeroController', ['only' => ['index', 'show'], 'names' => [
             'index' => 'hero.index',
             'show' => 'hero.show'
         ]]);
-        Route::resource('ability', 'Api\AbilityController', ['names' => [
+        Route::resource('ability', 'Api\AbilityController', ['only' => ['index', 'show'], 'names' => [
             'index' => 'ability.index',
             'show' => 'ability.show'
         ]]);
-        Route::resource('achievement', 'Api\AchievementController', ['names' => [
+        Route::resource('achievement', 'Api\AchievementController', ['only' => ['index', 'show'], 'names' => [
             'index' => 'achievement.index',
             'show' => 'achievement.show'
         ]]);
-        Route::resource('map', 'Api\MapController', ['names' => [
+        Route::resource('map', 'Api\MapController', ['only' => ['index', 'show'], 'names' => [
             'index' => 'map.index',
             'show' => 'map.show'
         ]]);
-        Route::resource('reward', 'Api\RewardController', ['names' => [
+        Route::resource('reward', 'Api\RewardController', ['only' => ['index', 'show'], 'names' => [
             'index' => 'reward.index',
             'show' => 'reward.show'
         ]]);
