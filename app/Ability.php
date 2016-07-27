@@ -27,6 +27,6 @@ class Ability extends Model
 
     public function getUrlAttribute()
     {
-        return $this->attributes['url'] = route('ability.show', ['id' => $this->attributes['id']]);
+        return $this->attributes['url'] = route('api.ability.show', ['id' => $this->attributes['id']]);
     }
 }

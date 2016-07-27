@@ -23,6 +23,6 @@ class Achievement extends Model
 
     public function getUrlAttribute()
     {
-        return $this->attributes['url'] = route('achievement.show', ['id' => $this->attributes['id']]);
+        return $this->attributes['url'] = route('api.achievement.show', ['id' => $this->attributes['id']]);
     }
 }

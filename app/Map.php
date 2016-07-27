@@ -22,6 +22,6 @@ class Map extends Model
 
     public function getUrlAttribute()
     {
-        return $this->attributes['url'] = route('map.show', ['id' => $this->attributes['id']]);
+        return $this->attributes['url'] = route('api.map.show', ['id' => $this->attributes['id']]);
     }
 }

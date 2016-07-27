@@ -41,6 +41,6 @@ class Reward extends Model
 
     public function getUrlAttribute()
     {
-        return $this->attributes['url'] = route('reward.show', ['id' => $this->attributes['id']]);
+        return $this->attributes['url'] = route('api.reward.show', ['id' => $this->attributes['id']]);
     }
 }

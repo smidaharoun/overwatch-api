@@ -32,6 +32,6 @@ class Hero extends Model
 
     public function getUrlAttribute()
     {
-        return $this->attributes['url'] = route('hero.show', ['id' => $this->attributes['id']]);
+        return $this->attributes['url'] = route('api.hero.show', ['id' => $this->attributes['id']]);
     }
 }
