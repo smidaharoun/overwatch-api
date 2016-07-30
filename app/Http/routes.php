@@ -14,10 +14,6 @@
 Route::group(['middleware' => 'web'], function() {
     Route::get('/', ['uses' => 'IndexController@index', 'as' => 'web.index']);
 
-    /**
-     * @todo  FIX
-     *        http://api.overwatch.dev/docs - shouldnt return API response
-     */
     Route::group(['prefix' => 'docs'], function () {
         Route::get('/{version}', ['uses' => 'DocumentationController@index', 'as' => 'web.docs']);
     });

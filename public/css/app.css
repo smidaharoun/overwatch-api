@@ -33,6 +33,14 @@ select:focus {
   border: 1px solid #ff3939;
 }
 
+pre {
+    max-height: 700px;
+}
+
+pre > code {
+    overflow: hidden;
+}
+
 .button-primary {
     background: #ff5252 !important;
     border: #ff5252 !important;
@@ -74,6 +82,7 @@ select:focus {
 #footer {
     font-size: small;
     text-align: center;
+    padding: 10px 0;
 }
 
 .api-test .endpoint-input,
