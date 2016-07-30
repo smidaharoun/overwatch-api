@@ -10,7 +10,6 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
-use League\OAuth2\Server\Exception\OAuthException as OAuthException;
 use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
@@ -51,6 +50,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($request->wantsJson()) {
+            return $this->renderJson($request, $e);
+        }
+        return parent::render($request, $e);
+    }
+
+    protected function renderJson($request, Exception $e)
+    {
         $response = parent::render($request, $e);
         $status = $response->getStatusCode();
 
@@ -66,11 +73,6 @@ class Handler extends ExceptionHandler
             case $e instanceof MethodNotAllowedHttpException:
                 $title = 'Method not allowed';
                 $detail = 'The method given is not allowed';
-                break;
-            case $e instanceof OAuthException:
-                $status = $e->httpStatusCode;
-                $title = 'Invalid request';
-                $detail = $e->getMessage();
                 break;
             case $e instanceof HttpResponseException:
                 $title = 'HTTP response exception';
