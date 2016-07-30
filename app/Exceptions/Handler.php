@@ -58,6 +58,11 @@ class Handler extends ExceptionHandler
         return parent::render($request, $e);
     }
 
+    /**
+     * @param  \Illuminate\Http\Request  $request
+     * @param  Exception $e
+     * @return \Illuminate\Http\JsonResponse
+     */
     protected function renderJson($request, Exception $e)
     {
         $response = parent::render($request, $e);
