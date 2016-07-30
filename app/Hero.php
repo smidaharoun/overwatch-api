@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hero extends Model
 {
-    protected $hidden = ['role_id', 'created_at', 'updated_at', 'deleted_at'];
+    protected $hidden = ['role_id'];
 
     protected $appends = ['url'];
     

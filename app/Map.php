@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Map extends Model
 {
-    protected $hidden = ['map_mode_id', 'created_at', 'updated_at', 'deleted_at'];
+    protected $hidden = ['map_mode_id'];
 
     protected $appends = ['url'];
 

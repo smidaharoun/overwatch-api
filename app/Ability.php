@@ -6,14 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ability extends Model
 {
-    protected $hidden = ['meta', 'hero_id', 'created_at', 'updated_at', 'deleted_at'];
+    protected $hidden = ['hero_id'];
 
     protected $appends = ['url'];
-
-    public function meta()
-    {
-        return $this->hasMany('App\AbilityMeta');
-    }
 
     public function hero()
     {

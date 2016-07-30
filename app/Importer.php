@@ -42,7 +42,6 @@ class Importer
                     $item = null;
                 }
                 $data[$i][$headers[$x]] = $item;
-
             }
         }
         $this->truncate($table);
