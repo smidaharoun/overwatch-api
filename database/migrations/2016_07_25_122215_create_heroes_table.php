@@ -17,7 +17,6 @@ class CreateHeroesTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('role_id')->unsigned();
-            $table->integer('sub_role_id')->unsigned();
             $table->smallInteger('health');
             $table->smallInteger('armour');
             $table->smallInteger('shield');
@@ -27,11 +26,8 @@ class CreateHeroesTable extends Migration
             $table->string('affiliation')->nullable();
             $table->string('base_of_operations')->nullable();
             $table->tinyInteger('difficulty');
-            $table->timestamps();
-            $table->softDeletes();
 
             $table->foreign('role_id')->references('id')->on('roles');
-            $table->foreign('sub_role_id')->references('id')->on('sub_roles');
 
             $table->unique('name');
             $table->index('name');

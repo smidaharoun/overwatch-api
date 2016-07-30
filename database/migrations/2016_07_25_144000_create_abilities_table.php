@@ -23,8 +23,6 @@ class CreateAbilitiesTable extends Migration
 
             $table->unique(['name', 'hero_id']);
             $table->index('name');
-
-            $table->timestamps();
         });
     }
 

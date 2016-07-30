@@ -17,7 +17,6 @@ class CreateMapsTable extends Migration
             $table->string('name');
             $table->string('location');
             $table->integer('map_mode_id')->unsigned();
-            $table->timestamps();
 
             $table->foreign('map_mode_id')->references('id')->on('map_modes');
 

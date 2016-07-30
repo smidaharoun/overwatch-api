@@ -15,6 +15,9 @@ class CreateMapModesTable extends Migration
         Schema::create('map_modes', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('name');
+
+            $table->unique('name');
+            $table->index('name');
         });
     }
 
