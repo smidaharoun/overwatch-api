@@ -8,6 +8,9 @@
 		base data about the game such as heroes, maps and abilities.
 	</p>
 	<p>
+		The API is currently tracking {{ $heroCount }} heroes, {{ $abilityCount }} abilities, {{ $rewardCount }} rewards, {{ $mapCount }} maps, {{ $achievementCount }} achievements and more.
+	</p>
+	<p>
 		Use the form below to test an endpoint and see the response.
 		View the <a href="{{ route('web.docs', ['version' => 'v1']) }}">documentation</a> to see the available endpoints.
 	</p>

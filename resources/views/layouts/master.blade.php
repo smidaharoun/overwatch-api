@@ -13,8 +13,15 @@
     <body>
         <div class="container">
             <div id="header" class="row">
-                <div class="twelve columns">
-                    <a class="logo" href="{{ route('web.index') }}">Overwatch API</a>
+                <div class="ten columns">
+                    <a class="site-heading" href="{{ route('web.index') }}">Overwatch API</a>
+                </div>
+                <div class="two columns" id="social">
+                    <a class="github-button" href="https://github.com/jamesmcfadden/overwatch-api/issues" aria-label="Issue jamesmcfadden/overwatch-api on GitHub">Issue</a>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-via="jamesmcfdn" data-dnt="true">Tweet</a>
+                    <script>
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+                    </script>
                 </div>
             </div>
             <div class="row">
@@ -22,6 +29,8 @@
                     <ul id="navigation">
                         <li><a href="{{ route('web.index') }}">Home</a></li>
                         <li><a href="{{ route('web.docs', ['version' => 'v1']) }}">Documentation</a></li>
+                        <li><a href="{{ route('web.contribution') }}">Corrections & Contribution</a></li>
+                        <li><a href="{{ route('api.index') }}">The API</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,6 +49,7 @@
             @include('partials/analytics')
         @endif
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="/js/app.js"></script>
     </body>
 </html>
