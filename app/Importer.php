@@ -13,11 +13,17 @@ class Importer
      */
     protected $output;
 
+    /**
+     * @param Symfony\Component\Console\Output\ConsoleOutput $output
+     */
     public function __construct(ConsoleOutput $output)
     {
         $this->output = $output;
     }
 
+    /**
+     * @return void
+     */
     public function importAll()
     {
         foreach (new DirectoryIterator(data_path()) as $file) {
@@ -27,17 +33,19 @@ class Importer
         }
     }
 
+    /**
+     * @param  string $table The table name
+     * @return void
+     */
     public function import($table)
     {
-        $filename = data_path($table . '.csv');
-        $csvData = trim(file_get_contents($filename));
+        $csvData = trim(file_get_contents(data_path($table . '.csv')));
         $lines = explode(PHP_EOL, $csvData);
-        $headers = str_getcsv(array_shift($lines), ',', null);
+        $headers = str_getcsv(array_shift($lines));
         $data = array();
 
         foreach ($lines as $i => $line) {
-            $items = str_getcsv($line, ',', null);
-            foreach ($items as $x => $item) {
+            foreach (str_getcsv($line, ',') as $x => $item) {
                 if ($item === '\N') {
                     $item = null;
                 }
@@ -52,6 +60,10 @@ class Importer
         $this->output->writeln('Imported ' . count($data) . ' records for ' . $table);
     }
 
+    /**
+     * @param  string $table The table name
+     * @return void
+     */
     public function truncate($table)
     {
         DB::statement('SET foreign_key_checks = 0');
