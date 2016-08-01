@@ -14,7 +14,6 @@ class IndexController extends Controller
 {
     public function index()
     {
-        abort(500);
         return view('index.index', [
             'heroCount' => Hero::count(),
             'abilityCount' => Ability::count(),
