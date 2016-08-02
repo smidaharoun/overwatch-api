@@ -46,7 +46,7 @@ class Importer
 
         foreach ($lines as $i => $line) {
             foreach (str_getcsv($line, ',') as $x => $item) {
-                if ($item === '\N') {
+                if (empty($item)) {
                     $item = null;
                 }
                 $data[$i][$headers[$x]] = $item;

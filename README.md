@@ -57,17 +57,21 @@ If you would like to make additions or amendments to the project data, please re
 The data is stored in CSV format to make it easier to import to a database when necessary. When you add or update the data, please ensure you follow the format:
 
     id,name,description,hero_id,reward_id
-    "1","Level 10","Reach level 10.",\N,"30"
-    "2","Level 25","Reach level 25.",\N,"40"
-    "3","Level 50","Reach level 50.",\N,"39"
+    1,Level 10,Reach level 10.,,30
+    2,Level 25,Reach level 25.,,40
+    3,Level 50,Reach level 50.,,39
+    4,"Achievement with a comma, in the title","Description with ""quotes"" within.",,335
 
 That is:
 
 - Data files are headed with the associated database column names;
 - Records are separated with a newline character;
-- Record fields are enlosed in double quotes (`"`);
 - Record fields are separated with by a comma (`,`);
-- Null fields are denoted by `\N`
+- Text fields with a comma inside should be enclosed in quotes (`"`);
+- Text fields with quotes inside should be escaped with another quote (`"`);
+- Empty fields are treated as `null`
+
+It is recommended to use spreadsheet software such as OSX's Numbers to write and export CSV files in the expected format.
 
 ### Submitting Changes
 

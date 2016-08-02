@@ -1,8 +1,8 @@
 id,name
-"5","emote"
-"6","highlight intro"
-"3","player icon"
-"7","skin"
-"1","spray"
-"4","victory pose"
-"2","voice line"
+1,spray
+2,voice line
+3,player icon
+4,victory pose
+5,emote
+6,highlight intro
+7,skin
