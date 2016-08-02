@@ -9,6 +9,30 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 class Importer
 {
     /**
+     * Tables the importer supports
+     *
+     * Order is important to satisfy foreign key constraints, so
+     * should mimic the order of the migrations
+     * 
+     * @var array
+     */
+    protected $tables = [
+        'roles',
+        'sub_roles',
+        'heroes',
+        'hero_sub_roles',
+        'map_modes',
+        'maps',
+        'map_stages',
+        'abilities',
+        'qualities',
+        'currencies',
+        'reward_types',
+        'rewards',
+        'achievements',
+    ];
+
+    /**
      * @var Symfony\Component\Console\Output\ConsoleOutput
      */
     protected $output;
@@ -26,10 +50,8 @@ class Importer
      */
     public function importAll()
     {
-        foreach (new DirectoryIterator(data_path()) as $file) {
-            if (!$file->isDot() && $file->getExtension() === 'csv') {
-                $this->import(str_replace('.csv', '', $file->getFilename()));
-            }
+        foreach ($this->tables as $table) {
+            $this->import($table);
         }
     }
 
@@ -39,7 +61,15 @@ class Importer
      */
     public function import($table)
     {
-        $csvData = trim(file_get_contents(data_path($table . '.csv')));
+        $filename = $this->getFilenameForTable($table);
+
+        if (!is_readable($filename)) {
+            throw new \Exception(
+                'Trying to import data for table: ' . $table .
+                ', but cannot read data file: ' . $filename
+            );
+        }
+        $csvData = trim(file_get_contents($filename));
         $lines = explode(PHP_EOL, $csvData);
         $headers = str_getcsv(array_shift($lines));
         $data = array();
@@ -53,9 +83,7 @@ class Importer
             }
         }
         $this->truncate($table);
-        DB::statement('SET foreign_key_checks = 0');
         DB::table($table)->insert($data);
-        DB::statement('SET foreign_key_checks = 1');
 
         $this->output->writeln('Imported ' . count($data) . ' records for ' . $table);
     }
@@ -69,5 +97,14 @@ class Importer
         DB::statement('SET foreign_key_checks = 0');
         DB::statement('TRUNCATE ' . $table);
         DB::statement('SET foreign_key_checks = 1');
+    }
+
+    /**
+     * @param  string $table
+     * @return string
+     */
+    protected function getFilenameForTable($table)
+    {
+        return data_path($table . '.csv');
     }
 }
