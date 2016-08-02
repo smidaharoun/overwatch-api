@@ -957,3 +957,91 @@ id,name,reward_type_id,hero_id,cost,currency_id,quality_id
 956,Top 500,3,,,,2
 957,Season 1 Competitor,3,,,,2
 958,Season 1 Hero,3,,,,2
+959,Heroic,4,1,,,1
+960,Mission Complete,4,1,75,1,2
+961,Protector,4,1,75,1,2
+962,Seated,4,1,75,1,2
+963,Heroic,4,2,,,1
+964,Birdwatching,4,2,75,1,2
+965,Pop Up,4,2,75,1,2
+966,Tank,4,2,75,1,2
+967,Heroic,4,3,,,1
+968,Sitting,4,3,75,1,2
+969,I Heart You,4,3,75,1,2
+970,Peace,4,3,75,1,2
+971,Heroic,4,4,,,1
+972,Kneeling,4,4,75,1,2
+973,Shuriken,4,4,75,1,2
+974,Sword Stance,4,4,75,1,2
+975,Heroic,4,5,,,1
+976,Confident,4,5,75,1,2
+977,Kneeling,4,5,75,1,2
+978,Over The Shoulder,4,5,75,1,2
+979,Heroic,4,6,,,1
+980,It’ll Freeze That Way,4,6,75,1,2
+981,Kneeling,4,6,75,1,2
+982,Nyah Nyah,4,6,75,1,2
+983,Heroic,4,7,,,1
+984,Confident,4,7,75,1,2
+985,Grooving,4,7,75,1,2
+986,Ready For Action,4,7,75,1,2
+987,Heroic,4,8,,,1
+988,Contemplative,4,8,75,1,2
+989,Over The Shoulder,4,8,75,1,2
+990,Take It Easy,4,8,75,1,2
+991,Heroic,4,9,,,1
+992,Hands On Hips,4,9,75,1,2
+993,Casual,4,9,75,1,2
+994,Kneeling,4,9,75,1,2
+995,Heroic,4,10,,,1
+996,Carefree,4,10,75,1,2
+997,Angelic,4,10,75,1,2
+998,Ready For Battle,4,10,75,1,2
+999,Heroic,4,11,,,1
+1000,Kneeling,4,11,75,1,2
+1001,Guardian,4,11,75,1,2
+1002,Jump Jet,4,11,75,1,2
+1003,Heroic,4,12,,,1
+1004,Casual,4,12,75,1,2
+1005,Enigmatic,4,12,75,1,2
+1006,Menacing,4,12,75,1,2
+1007,Heroic,4,13,,,1
+1008,Confident,4,13,75,1,2
+1009,Flex,4,13,75,1,2
+1010,Legendary,4,13,75,1,2
+1011,Heroic,4,14,,,1
+1012,Pointing To The Sky,4,14,75,1,2
+1013,Thumbs Up,4,14,75,1,2
+1014,Tuckered Out,4,14,75,1,2
+1015,Heroic,4,15,,,1
+1016,Fist Pump,4,15,75,1,2
+1017,Locked And Loaded,4,15,75,1,2
+1018,Soldier,4,15,75,1,2
+1019,Heroic,4,16,,,1
+1020,Balance,4,16,75,1,2
+1021,Creation,4,16,75,1,2
+1022,Dance,4,16,75,1,2
+1023,Heroic,4,17,,,1
+1024,Hammer,4,17,75,1,2
+1025,Sitting Pretty,4,17,75,1,2
+1026,Take Five,4,17,75,1,2
+1027,Heroic,4,18,,,1
+1028,Salute,4,18,75,1,2
+1029,Over The Shoulder,4,18,75,1,2
+1030,Sitting,4,18,75,1,2
+1031,Heroic,4,19,,,1
+1032,Activating Visor,4,19,75,1,2
+1033,Gaze,4,19,75,1,2
+1034,Over The Shoulder,4,19,75,1,2
+1035,Heroic,4,20,,,1
+1036,Beast,4,20,75,1,2
+1037,Glasses,4,20,75,1,2
+1038,The Thinker,4,20,75,1,2
+1039,Heroic,4,21,,,1
+1040,Casual,4,21,75,1,2
+1041,Check Out This Gun,4,21,75,1,2
+1042,Flexing,4,21,75,1,2
+1043,Heroic,4,22,,,1
+1044,Balance,4,22,75,1,2
+1045,Harmony,4,22,75,1,2
+1046,Peace,4,22,75,1,2
