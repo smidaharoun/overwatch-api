@@ -45,9 +45,7 @@
                 </div>
             </div>
         </div>
-        @if (config('app.env') === 'production')
-            @include('partials/analytics')
-        @endif
+        @include('partials/analytics')
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <script src="/js/app.js"></script>

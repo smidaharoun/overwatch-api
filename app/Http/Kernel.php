@@ -36,6 +36,7 @@ class Kernel extends HttpKernel
             'throttle:500,60',
             \App\Http\Middleware\ServeEtag::class,
             \App\Http\Middleware\BuildApiResponse::class,
+            \App\Http\Middleware\Analytics::class,
         ],
     ];
 

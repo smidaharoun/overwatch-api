@@ -210,4 +210,13 @@ return [
         'root' => base_path(),
     ],
 
+    'analytics' => [
+    
+        // Google analytics for JS
+        'client_ua' => env('CLIENT_UA'),
+
+        // Google analytics for API (measurement protocol)
+        'server_ua' => env('SERVER_UA'),
+    ],
+
 ];
