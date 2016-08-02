@@ -1045,3 +1045,91 @@ id,name,reward_type_id,hero_id,cost,currency_id,quality_id
 1044,Balance,4,22,75,1,2
 1045,Harmony,4,22,75,1,2
 1046,Peace,4,22,75,1,2
+1047,Heroic,5,1,,,1
+1048,Disapproving,5,1,250,1,3
+1049,Protector,5,1,250,1,3
+1050,Tea Time,5,1,250,1,3
+1051,Heroic,5,2,,,1
+1052,Dizzy,5,2,250,1,3
+1053,Alert! Alert!,5,2,250,1,3
+1054,Robot,5,2,250,1,3
+1055,Heroic,5,3,,,1
+1056,Bunny Hop,5,3,250,1,3
+1057,Heartbreaker,5,3,250,1,3
+1058,Party Time,5,3,250,1,3
+1059,Heroic,5,4,,,1
+1060,Challenge,5,4,250,1,3
+1061,Cutting Edge,5,4,250,1,3
+1062,Salute,5,4,250,1,3
+1063,Heroic,5,5,,,1
+1064,Victory,5,5,250,1,3
+1065,Beckon,5,5,250,1,3
+1066,Brush Shoulder,5,5,250,1,3
+1067,Heroic,5,6,,,1
+1068,Juggling,5,6,250,1,3
+1069,Puppet,5,6,250,1,3
+1070,Vaudeville,5,6,250,1,3
+1071,Heroic,5,7,,,1
+1072,Capoeira,5,7,250,1,3
+1073,In The Groove,5,7,250,1,3
+1074,Nah!,5,7,250,1,3
+1075,Heroic,5,8,,,1
+1076,Gunspinning,5,8,250,1,3
+1077,Hat Tip,5,8,250,1,3
+1078,Spit,5,8,250,1,3
+1079,Heroic,5,9,,,1
+1080,Companion,5,9,250,1,3
+1081,Spray,5,9,250,1,3
+1082,Yaaaaaaaaay!,5,9,250,1,3
+1083,Heroic,5,10,,,1
+1084,Applause,5,10,250,1,3
+1085,Caduceus,5,10,250,1,3
+1086,No Pulse,5,10,250,1,3
+1087,Heroic,5,11,,,1
+1088,Cheer,5,11,250,1,3
+1089,Flourish,5,11,250,1,3
+1090,Knuckles,5,11,250,1,3
+1091,Heroic,5,12,,,1
+1092,Not Impressed,5,12,250,1,3
+1093,Slice,5,12,250,1,3
+1094,Slow Clap,5,12,250,1,3
+1095,Heroic,5,13,,,1
+1096,Flex,5,13,250,1,3
+1097,Taunt,5,13,250,1,3
+1098,Warrior’s Salute,5,13,250,1,3
+1099,Heroic,5,14,,,1
+1100,Boo!,5,14,250,1,3
+1101,Can Crusher,5,14,250,1,3
+1102,Headbanging,5,14,250,1,3
+1103,Heroic,5,15,,,1
+1104,Fist,5,15,250,1,3
+1105,I See You,5,15,250,1,3
+1106,Locked And Loaded,5,15,250,1,3
+1107,Heroic,5,16,,,1
+1108,Clap,5,16,250,1,3
+1109,Flow,5,16,250,1,3
+1110,Insignificant,5,16,250,1,3
+1111,Heroic,5,17,,,1
+1112,Clicking Heels,5,17,250,1,3
+1113,Fisticuffs,5,17,250,1,3
+1114,Overload,5,17,250,1,3
+1115,Heroic,5,18,,,1
+1116,Cheer,5,18,250,1,3
+1117,Laughing,5,18,250,1,3
+1118,Spin,5,18,250,1,3
+1119,Heroic,5,19,,,1
+1120,Curtain Call,5,19,250,1,3
+1121,Shot Dead,5,19,250,1,3
+1122,Widow's Kiss,5,19,250,1,3
+1123,Heroic,5,20,,,1
+1124,Monkey Business,5,20,250,1,3
+1125,Peanut Butter?,5,20,250,1,3
+1126,Roar,5,20,250,1,3
+1127,Heroic,5,21,,,1
+1128,Bring It On,5,21,250,1,3
+1129,Crush You,5,21,250,1,3
+1130,Pumping Iron,5,21,250,1,3
+1131,Heroic,5,22,,,1
+1132,Focusing,5,22,250,1,3
+1133,Round Of Applause,5,22,250,1,3
+1134,Taunt,5,22,250,1,3
