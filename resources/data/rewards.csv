@@ -1133,3 +1133,91 @@ id,name,reward_type_id,hero_id,cost,currency_id,quality_id
 1132,Focusing,5,22,250,1,3
 1133,Round Of Applause,5,22,250,1,3
 1134,Taunt,5,22,250,1,3
+1135,Heroic,6,1,,,1
+1136,Guardian,6,1,250,1,3
+1137,Locked On,6,1,250,1,3
+1138,Shh…,6,1,250,1,3
+1139,Heroic,6,2,,,1
+1140,Bullet Rain,6,2,250,1,3
+1141,Ganymede,6,2,250,1,3
+1142,On Guard,6,2,250,1,3
+1143,Heroic,6,3,,,1
+1144,Eject,6,3,250,1,3
+1145,Lying Around,6,3,250,1,3
+1146,Meka Activated,6,3,250,1,3
+1147,Heroic,6,4,,,1
+1148,Shuriken,6,4,250,1,3
+1149,Unsheathing The Sword,6,4,250,1,3
+1150,Warrior’s Salute,6,4,250,1,3
+1151,Heroic,6,5,,,1
+1152,Backflip,6,5,250,1,3
+1153,My Aim Is True,6,5,250,1,3
+1154,Superior,6,5,250,1,3
+1155,Heroic,6,6,,,1
+1156,I'm Flying!,6,6,250,1,3
+1157,Rip-Tire,6,6,250,1,3
+1158,Unfortunate,6,6,250,1,3
+1159,Heroic,6,7,,,1
+1160,Drop The Beat,6,7,250,1,3
+1161,Freestyle,6,7,250,1,3
+1162,In The Groove,6,7,250,1,3
+1163,Heroic,6,8,,,1
+1164,Rolling Into Action,6,8,250,1,3
+1165,The Duel,6,8,250,1,3
+1166,The Name’s McCree,6,8,250,1,3
+1167,Heroic,6,9,,,1
+1168,Skating Around,6,9,250,1,3
+1169,Frosty :),6,9,250,1,3
+1170,Going Up,6,9,250,1,3
+1171,Heroic,6,10,,,1
+1172,Battle Angel,6,10,250,1,3
+1173,Guardian Angel,6,10,250,1,3
+1174,Heroes Never Die,6,10,250,1,3
+1175,Heroic,6,11,,,1
+1176,Barrage,6,11,250,1,3
+1177,Mission Complete,6,11,250,1,3
+1178,Touchdown,6,11,250,1,3
+1179,Heroic,6,12,,,1
+1180,Death Blossom,6,12,250,1,3
+1181,Executioner,6,12,250,1,3
+1182,Shadow Step,6,12,250,1,3
+1183,Heroic,6,13,,,1
+1184,Charge,6,13,250,1,3
+1185,Hammer Down,6,13,250,1,3
+1186,More Stretching Required,6,13,250,1,3
+1187,Heroic,6,14,,,1
+1188,Little Piggy,6,14,250,1,3
+1189,"Say “Cheese""",6,14,250,1,3
+1190,Whole Hog,6,14,250,1,3
+1191,Heroic,6,15,,,1
+1192,Helix,6,15,250,1,3
+1193,Looking At You,6,15,250,1,3
+1194,Target Rich Environment,6,15,250,1,3
+1195,Heroic,6,16,,,1
+1196,My Reality,6,16,250,1,3
+1197,Askew,6,16,250,1,3
+1198,Dance,6,16,250,1,3
+1199,Heroic,6,17,,,1
+1200,In Your Face,6,17,250,1,3
+1201,Refreshing,6,17,250,1,3
+1202,Ride ‘Em,6,17,250,1,3
+1203,Heroic,6,18,,,1
+1204,Serious Business,6,18,250,1,3
+1205,Backflip,6,18,250,1,3
+1206,Just In Time,6,18,250,1,3
+1207,Heroic,6,19,,,1
+1208,Hanging Around,6,19,250,1,3
+1209,I See You…,6,19,250,1,3
+1210,Swinging Into Action,6,19,250,1,3
+1211,Heroic,6,20,,,1
+1212,Excuse Me,6,20,250,1,3
+1213,Glasses,6,20,250,1,3
+1214,Primal Rage,6,20,250,1,3
+1215,Heroic,6,21,,,1
+1216,Deadlift,6,21,250,1,3
+1217,Maximum Charge,6,21,250,1,3
+1218,This Is Strength,6,21,250,1,3
+1219,Heroic,6,22,,,1
+1220,Focused,6,22,250,1,3
+1221,Harmony And Discord,6,22,250,1,3
+1222,Transcendence,6,22,250,1,3
