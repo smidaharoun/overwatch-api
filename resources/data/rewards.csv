@@ -1468,3 +1468,98 @@ id,name,reward_type_id,hero_id,cost,currency_id,quality_id,event_id
 1467,Sunyatta,7,21,1000,1,4,
 1468,Ifrit,7,21,1000,1,4,
 1469,Ra,7,21,1000,1,4,
+1470,Summer Games 2016,1,,,,1,1
+1471,Shooting,1,1,,,1,1
+1472,Boxing,1,2,,,1,1
+1473,Cycling,1,3,,,1,1
+1474,Fencing,1,4,,,1,1
+1475,Archery,1,5,,,1,1
+1476,Tennis,1,6,,,1,1
+1477,Football,1,7,,,1,1
+1478,Equestrian,1,8,,,1,1
+1479,Table Tennis,1,9,,,1,1
+1480,Badminton,1,10,,,1,1
+1481,Basketball,1,11,,,1,1
+1482,BMX,1,12,,,1,1
+1483,Wrestling,1,13,,,1,1
+1484,Diving,1,14,,,1,1
+1485,Golf,1,15,,,1,1
+1486,Rhythmic,1,16,,,1,1
+1487,Water Polo,1,17,,,1,1
+1488,Track,1,18,,,1,1
+1489,Gymnastics,1,19,,,1,1
+1490,Volleyball,1,20,,,1,1
+1491,Weightlifting,1,21,,,1,1
+1492,Taekwondo,1,22,,,1,1
+1493,Learn From The Pain,2,1,,,1,1
+1494,Whoo-Vweeeeee!,2,2,,,1,1
+1495,I'm #1,2,3,,,1,1
+1496,I Was Hoping For A Challenge,2,4,,,1,1
+1497,Ignore All Distractions,2,5,,,1,1
+1498,I Give It A 10!,2,6,,,1,1
+1499,Be Champions,2,7,,,1,1
+1500,I Don't Much Like Losing,2,8,,,1,1
+1501,Overcome All Obstacles,2,9,,,1,1
+1502,Piece Of Cake,2,10,,,1,1
+1503,We Are In This Together,2,11,,,1,1
+1504,It's In The Refrigerator,2,12,,,1,1
+1505,100% German Power,2,13,,,1,1
+1506,What's Mine Is Mine,2,14,,,1,1
+1507,You Want A Medal?,2,15,,,1,1
+1508,Hard Work And Dedication,2,16,,,1,1
+1509,More Where That Came From,2,17,,,1,1
+1510,Eat My Dust,2,18,,,1,1
+1511,I Don't Miss,2,19,,,1,1
+1512,Playtime’s Over,2,20,,,1,1
+1513,"No Pain, No Gain",2,21,,,1,1
+1514,Strive For Improvement,2,22,,,1,1
+1515,Summer Games 2016,3,,,,2,1
+1516,Archery,3,,,,2,1
+1517,Badminton,3,,,,2,1
+1518,Basketball,3,,,,2,1
+1519,Biking,3,,,,2,1
+1520,Boxing,3,,,,2,1
+1521,Dirt Biking,3,,,,2,1
+1522,Equestrian,3,,,,2,1
+1523,Fencing,3,,,,2,1
+1524,Golfing,3,,,,2,1
+1525,Gymnastics,3,,,,2,1
+1526,Martial Arts,3,,,,2,1
+1527,Ribbon Dancing,3,,,,2,1
+1528,Shooting,3,,,,2,1
+1529,Football,3,,,,2,1
+1530,Swimming,3,,,,2,1
+1531,Table Tennis,3,,,,2,1
+1532,Tennis,3,,,,2,1
+1533,Track,3,,,,2,1
+1534,Volleyball,3,,,,2,1
+1535,Water Polo,3,,,,2,1
+1536,Weight Lifting,3,,,,2,1
+1547,Wrestling,3,,,,2,1
+1548,Medal,4,9,,,2,1
+1549,Medal,4,11,,,2,1
+1550,Medal,4,12,,,2,1
+1551,Medal,4,14,,,2,1
+1552,Medal,4,15,,,2,1
+1553,Medal,4,17,,,2,1
+1554,Medal,4,19,,,2,1
+1555,Medal,4,20,,,2,1
+1556,Medal,4,22,,,2,1
+1557,Boxing,5,2,,,3,1
+1558,Juggle,5,7,,,3,1
+1559,Ribbon,5,16,,,3,1
+1560,Shotput,6,6,,,3,1
+1561,Bicycle Kick,6,7,,,3,1
+1562,Hurdle,6,18,,,3,1
+1563,Taegeukgi,7,3,,,3,1
+1564,Nihon,7,4,,,3,1
+1565,Seleção,7,7,,,4,1
+1566,Striker,7,7,,,4,1
+1567,American,7,8,,,3,1
+1568,Eldgenossin,7,10,,,3,1
+1569,The Kroner,7,17,,,3,1
+1570,Sprinter,7,18,,,4,1
+1571,Track and Field,7,18,,,4,1
+1572,Tricolore,7,19,,,3,1
+1573,Champion,7,21,,,4,1
+1574,Weightlifter,7,21,,,4,1
