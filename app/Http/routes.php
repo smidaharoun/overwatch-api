@@ -32,5 +32,9 @@ Route::group(['prefix' => 'api', 'middleware' => 'api'], function() {
             'index' => 'api.reward.index',
             'show' => 'api.reward.show'
         ]]);
+        Route::resource('event', 'Api\EventController', ['only' => ['index', 'show'], 'names' => [
+            'index' => 'api.event.index',
+            'show' => 'api.event.show'
+        ]]);
     });
 });

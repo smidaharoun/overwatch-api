@@ -7,7 +7,14 @@ use App\Cost;
 
 class Reward extends Model
 {
-    protected $hidden = ['currency', 'hero_id', 'reward_type_id', 'currency_id', 'quality_id'];
+    protected $hidden = [
+        'currency',
+        'hero_id',
+        'reward_type_id',
+        'currency_id',
+        'quality_id',
+        'event_id'
+    ];
 
     protected $appends = ['cost', 'url'];
 
@@ -29,6 +36,11 @@ class Reward extends Model
     public function quality()
     {
         return $this->belongsTo('App\Quality');
+    }
+
+    public function event()
+    {
+        return $this->belongsTo('App\Event');
     }
 
     public function getCostAttribute()

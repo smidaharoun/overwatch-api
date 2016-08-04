@@ -27,6 +27,7 @@ class Importer
         'abilities',
         'qualities',
         'currencies',
+        'events',
         'reward_types',
         'rewards',
         'achievements',

@@ -17,7 +17,7 @@ class RewardController extends Controller
 
     public function show(Reward $reward)
     {
-        $reward->load('type', 'hero', 'currency', 'quality');
+        $reward->load('type', 'hero', 'currency', 'quality', 'event');
 
         return $reward;
     }
