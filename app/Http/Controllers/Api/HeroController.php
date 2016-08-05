@@ -15,7 +15,7 @@ class HeroController extends Controller
 
     public function show(Hero $hero)
     {
-        $hero->load('role', 'subRoles', 'abilities', 'rewards');
+        $hero->load('role', 'subRoles', 'abilities', 'rewards.type', 'rewards.quality', 'rewards.event');
 
         return $hero;
     }

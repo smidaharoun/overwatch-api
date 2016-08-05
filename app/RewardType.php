@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class RewardType extends Model
 {
-    protected $hidden = ['id'];
+    
 }
