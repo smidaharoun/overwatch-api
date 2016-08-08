@@ -4,18 +4,9 @@
 
 The Overwatch API is a project aiming to make available as much data about Overwatch as possible. It does not concern itself with player data, as made available by other APIs, but instead focuses on base data about the game such as heroes, maps and abilities.
 
-The API is hosted at [overwatch-api.net](http://overwatch-api.net).
+The API is hosted at [overwatch-api.net](http://overwatch-api.net):
 
-## Example Request
-
-Here is an example of requesting a map by it's ID:
-
-    curl http://overwatch-api.net/api/v1/map/9
-
-## Example Response
-
-An example response from the map show endpoint:
-
+    > curl http://overwatch-api.net/api/v1/map/9
     {  
        "id":9,
        "name":"Nepal",
@@ -40,6 +31,12 @@ An example response from the map show endpoint:
           }
        ]
     }
+
+
+
+## Documentation
+
+Full API documentation can be found at [overwatch-api.net/docs/v1](http://overwatch-api.net/docs/v1). For installation instructions, see below.
 
 ## Installation
 
