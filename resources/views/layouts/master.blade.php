@@ -2,7 +2,7 @@
     <head>
         <title>Overwatch API - A RESTful API for the Overwatch Game</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="The Overwatch API is a project aiming to make available as much data about Overwatch as possible">
+        <meta name="description" content="The Overwatch API is a project aiming to make available as much data about Overwatch as possible. Check out the documentation to get started">
         <meta name="author" content="James McFadden">
 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto+Slab" rel="stylesheet">
@@ -29,7 +29,7 @@
                     <ul id="navigation">
                         <li><a href="{{ route('web.index') }}">Home</a></li>
                         <li><a href="{{ route('web.docs', ['version' => 'v1']) }}">Documentation</a></li>
-                        <li><a href="{{ route('web.contribution') }}">Corrections & Contribution</a></li>
+                        <li><a href="{{ route('web.contribution') }}">Corrections &amp; Contribution</a></li>
                         <li><a href="{{ route('api.index') }}">The API</a></li>
                     </ul>
                 </div>
