@@ -1,17 +1,17 @@
 # Overwatch API
 
-![Overwatch API Banner](http://overwatch-api.net/img/ow-banner.jpg)
+![Overwatch API Banner](https://overwatch-api.net/img/ow-banner.jpg)
 
 The Overwatch API is a project aiming to make available as much data about Overwatch as possible. It does not concern itself with player data, as made available by other APIs, but instead focuses on base data about the game such as heroes, maps and abilities.
 
-The API is hosted at [overwatch-api.net](http://overwatch-api.net):
+The API is hosted at [overwatch-api.net](https://overwatch-api.net):
 
-    > curl http://overwatch-api.net/api/v1/map/9
+    > curl https://overwatch-api.net/api/v1/map/9
     {  
        "id":9,
        "name":"Nepal",
        "location":"Nepal",
-       "url":"http://overwatch-api.net/api/v1/map/9",
+       "url":"https://overwatch-api.net/api/v1/map/9",
        "mode":{  
           "id":2,
           "name":"Control"
@@ -36,7 +36,7 @@ The API is hosted at [overwatch-api.net](http://overwatch-api.net):
 
 ## Documentation
 
-Full API documentation can be found at [overwatch-api.net/docs/v1](http://overwatch-api.net/docs/v1). For installation instructions, see below.
+Full API documentation can be found at [overwatch-api.net/docs/v1](https://overwatch-api.net/docs/v1). For installation instructions, see below.
 
 ## Installation
 
