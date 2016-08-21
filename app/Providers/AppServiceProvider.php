@@ -12,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(UrlGenerator $url, \App $app)
+    public function boot(UrlGenerator $url)
     {
         if (!$this->app->environment('local')) {
             $url->forceSchema('https');
