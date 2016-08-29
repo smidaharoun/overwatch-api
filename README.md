@@ -1,5 +1,8 @@
 # Overwatch API
 
+[![Build Status](https://travis-ci.org/jamesmcfadden/overwatch-api.svg?branch=master)](https://travis-ci.org/jamesmcfadden/overwatch-api)
+[![StyleCI](https://styleci.io/repos/64663631/shield?style=flat)](https://styleci.io/repos/64663631)
+
 ![Overwatch API Banner](https://overwatch-api.net/img/ow-banner.jpg)
 
 The Overwatch API is a project aiming to make available as much data about Overwatch as possible. It does not concern itself with player data, as made available by other APIs, but instead focuses on base data about the game such as heroes, maps and abilities.
