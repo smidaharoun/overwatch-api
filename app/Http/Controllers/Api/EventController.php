@@ -15,7 +15,7 @@ class EventController extends Controller
 
     public function show(Event $event)
     {
-        $event->load('rewards');
+        $event->load('maps', 'rewards');
 
         return $event;
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Map;
 use App\Event;
 use App\Reward;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
@@ -52,6 +53,7 @@ class EventControllerTest extends TestCase
         $rewards = factory(Reward::class, 20)->create([
             'event_id' => $event->id
         ]);
+        factory(Map::class)->create(['event_id' => $event->id]);
 
         $this->json('GET', sprintf('/api/v1/event/%s', $event->id))
              ->seeJsonEquals([
@@ -60,6 +62,7 @@ class EventControllerTest extends TestCase
                 'start_date' => $event->start_date,
                 'end_date' => $event->end_date,
                 'url' => $event->url,
+                'maps' => $event->maps->jsonSerialize(),
                 'rewards' => $rewards->jsonSerialize()
              ]);
     }
