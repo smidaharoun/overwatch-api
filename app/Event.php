@@ -13,6 +13,11 @@ class Event extends Model
         return $this->hasMany('App\Reward');
     }
 
+    public function maps()
+    {
+        return $this->hasMany('App\Map');
+    }
+
     public function getUrlAttribute()
     {
         return $this->attributes['url'] = route('api.event.show', ['id' => $this->attributes['id']]);

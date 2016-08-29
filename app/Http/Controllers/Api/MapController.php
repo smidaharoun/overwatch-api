@@ -10,12 +10,14 @@ class MapController extends Controller
 {
     public function index()
     {
-        return Map::paginate($this->numberResults);
+        $maps = Map::with('event')->paginate($this->numberResults);
+
+        return $maps;
     }
 
     public function show(Map $map)
     {
-        $map->load('mode', 'stages');
+        $map->load('mode', 'stages', 'event');
         
         return $map;
     }

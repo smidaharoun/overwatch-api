@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Map extends Model
 {
-    protected $hidden = ['map_mode_id'];
+    protected $hidden = ['map_mode_id', 'event_id'];
 
     protected $appends = ['url'];
 
@@ -18,6 +18,11 @@ class Map extends Model
     public function stages()
     {
         return $this->hasMany('App\MapStage');
+    }
+
+    public function event()
+    {
+        return $this->belongsTo('App\Event');
     }
 
     public function getUrlAttribute()
