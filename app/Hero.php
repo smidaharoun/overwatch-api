@@ -6,9 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hero extends Model
 {
+    public $timestamps = false;
+    
     protected $hidden = ['role_id'];
 
     protected $appends = ['url'];
+
+    protected $casts = [
+        'health' => 'int',
+        'armour' => 'int',
+        'shield' => 'int',
+        'age' => 'int',
+        'height' => 'int',
+        'difficulty' => 'int'
+    ];
     
     public function role()
     {

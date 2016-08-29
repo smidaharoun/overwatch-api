@@ -12,7 +12,7 @@ class Import extends Command
      *
      * @var string
      */
-    protected $signature = 'import {table?}';
+    protected $signature = 'import';
 
     /**
      * The console command description.
@@ -34,6 +34,7 @@ class Import extends Command
     public function __construct(Importer $importer)
     {
         parent::__construct();
+        
         $this->importer = $importer;
     }
 
@@ -44,14 +45,6 @@ class Import extends Command
      */
     public function handle()
     {
-        $table = $this->argument('table');
-
-        if (null === $table) {
-            $this->importer->importAll();
-        } else {
-            foreach (explode(',', $table) as $t) {
-                $this->importer->import($t);
-            }
-        }
+        $this->importer->importAll();
     }
 }

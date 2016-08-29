@@ -13,7 +13,7 @@ class Cost
     public function __construct(Currency $currency, $value)
     {
         $this->currency = $currency->name;
-        $this->value = $value;
+        $this->value = (int) $value;
     }
 
     public function toArray()

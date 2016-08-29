@@ -27,6 +27,7 @@ class AddEventIdColumnToMapsTable extends Migration
     public function down()
     {
         Schema::table('maps', function ($table) {
+            $table->dropForeign('maps_event_id_foreign');
             $table->dropColumn('event_id');
         });
     }

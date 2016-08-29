@@ -4,10 +4,21 @@ namespace App;
 
 use DB;
 use \DirectoryIterator;
-use Symfony\Component\Console\Output\ConsoleOutput;
+use Illuminate\Contracts\Console\Kernel;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class Importer
 {
+    /**
+     * @var Illuminate\Contracts\Console\Kernel
+     */
+    protected $artisan;
+
+    /**
+     * @var Symfony\Component\Console\Output\OutputInterface
+     */
+    protected $output;
+
     /**
      * Tables the importer supports
      *
@@ -22,27 +33,24 @@ class Importer
         'heroes',
         'hero_sub_roles',
         'map_modes',
+        'events',
         'maps',
         'map_stages',
         'abilities',
         'qualities',
         'currencies',
-        'events',
         'reward_types',
         'rewards',
         'achievements',
     ];
 
     /**
-     * @var Symfony\Component\Console\Output\ConsoleOutput
-     */
-    protected $output;
-
-    /**
      * @param Symfony\Component\Console\Output\ConsoleOutput $output
+     * @param Illuminate\Contracts\Console\Kernel $kernel
      */
-    public function __construct(ConsoleOutput $output)
+    public function __construct(OutputInterface $output, Kernel $artisan)
     {
+        $this->artisan = $artisan;
         $this->output = $output;
     }
 
@@ -51,60 +59,52 @@ class Importer
      */
     public function importAll()
     {
+        $this->refresh();
+
         foreach ($this->tables as $table) {
-            $this->import($table);
-        }
-    }
+            $filename = $this->getFilenameForTable($table);
 
-    /**
-     * @param  string $table The table name
-     * @return void
-     */
-    public function import($table)
-    {
-        $filename = $this->getFilenameForTable($table);
-
-        if (!is_readable($filename)) {
-            throw new \Exception(
-                'Trying to import data for table: ' . $table .
-                ', but cannot read data file: ' . $filename
-            );
-        }
-        $csvData = trim(file_get_contents($filename));
-        $lines = explode(PHP_EOL, $csvData);
-        $headers = str_getcsv(array_shift($lines));
-        $data = array();
-
-        foreach ($lines as $i => $line) {
-            foreach (str_getcsv($line, ',') as $x => $item) {
-                if (empty($item)) {
-                    $item = null;
-                }
-                $data[$i][$headers[$x]] = $item;
+            if (!is_readable($filename)) {
+                throw new \Exception(
+                    'Trying to import data for table: ' . $table .
+                    ', but cannot read data file: ' . $filename
+                );
             }
-        }
-        $this->truncate($table);
-        DB::table($table)->insert($data);
+            $csvData = trim(file_get_contents($filename));
+            $lines = explode(PHP_EOL, $csvData);
+            $headers = str_getcsv(array_shift($lines));
+            $data = array();
 
-        $this->output->writeln('Imported ' . count($data) . ' records for ' . $table);
+            foreach ($lines as $i => $line) {
+                foreach (str_getcsv($line, ',') as $x => $item) {
+                    if ($item == '') {
+                        $item = null;
+                    }
+                    $data[$i][$headers[$x]] = $item;
+                }
+            }
+            DB::table($table)->insert($data);
+
+            $this->output->writeln('Imported ' . count($data) . ' records for ' . $table);
+        }
     }
 
     /**
-     * @param  string $table The table name
+     * Refresh the dataset by resetting and re-running the migrations
+     * 
      * @return void
      */
-    public function truncate($table)
+    public function refresh()
     {
-        DB::statement('SET foreign_key_checks = 0');
-        DB::statement('TRUNCATE ' . $table);
-        DB::statement('SET foreign_key_checks = 1');
+        $this->artisan->call('migrate:reset');
+        $this->artisan->call('migrate');
     }
 
     /**
      * @param  string $table
      * @return string
      */
-    protected function getFilenameForTable($table)
+    public function getFilenameForTable($table)
     {
         return data_path($table . '.csv');
     }

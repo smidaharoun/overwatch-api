@@ -7,6 +7,8 @@ use App\Cost;
 
 class Achievement extends Model
 {
+    public $timestamps = false;
+    
     protected $hidden = ['hero_id', 'reward_id'];
 
     protected $appends = ['url'];

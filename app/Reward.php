@@ -7,6 +7,8 @@ use App\Cost;
 
 class Reward extends Model
 {
+    public $timestamps = false;
+    
     protected $hidden = [
         'currency',
         'hero_id',

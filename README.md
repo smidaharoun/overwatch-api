@@ -74,10 +74,6 @@ The data is stored in CSV format and can be found in `resources/data`. To remove
 
     php artisan import
 
-To import one or more tables:
-
-    php artisan import heroes,abilities
-
 ## Contribution
 
 If you would like to contribute to the project, please follow the steps above to install the project on your system so you can make changes.

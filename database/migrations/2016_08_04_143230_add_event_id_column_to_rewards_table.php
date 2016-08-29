@@ -27,6 +27,7 @@ class AddEventIdColumnToRewardsTable extends Migration
     public function down()
     {
         Schema::table('rewards', function ($table) {
+            $table->dropForeign('rewards_event_id_foreign');
             $table->dropColumn('event_id');
         });
     }
