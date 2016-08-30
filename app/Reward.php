@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Contracts\Model\ListableInterface;
+use App\Contracts\Model\ShowableInterface;
 
-class Reward extends Model
+class Reward extends Model implements ListableInterface, ShowableInterface
 {
     public $timestamps = false;
 
@@ -53,6 +55,19 @@ class Reward extends Model
 
     public function getUrlAttribute()
     {
-        return $this->attributes['url'] = route('api.reward.show', ['id' => $this->attributes['id']]);
+        return $this->attributes['url'] = route(
+            'api.show', 
+            ['resource' => 'reward', 'id' => $this->attributes['id']]
+        );
+    }
+
+    public function scopeList($query)
+    {
+        return $query->with('type', 'currency', 'quality');
+    }
+
+    public function scopeShow($query)
+    {
+        return $query->with('type', 'hero', 'currency', 'quality', 'event');
     }
 }

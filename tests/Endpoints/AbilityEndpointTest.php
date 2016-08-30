@@ -1,9 +1,11 @@
 <?php
 
 use App\Ability;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class AbilityControllerTest extends TestCase
+class AbilityEndpointTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -28,7 +30,7 @@ class AbilityControllerTest extends TestCase
                         'description' => $abilities->first()->description,
                         'is_ultimate' => $abilities->first()->is_ultimate,
                         'url' => $abilities->first()->url,
-                        'hero' => $abilities->first()->hero->jsonSerialize(),
+                        'hero' => $abilities->first()->hero->jsonSerialize()
                     ],
                     [
                         'id' => $abilities->get(1)->id,
@@ -36,9 +38,9 @@ class AbilityControllerTest extends TestCase
                         'description' => $abilities->get(1)->description,
                         'is_ultimate' => $abilities->get(1)->is_ultimate,
                         'url' => $abilities->get(1)->url,
-                        'hero' => $abilities->get(1)->hero->jsonSerialize(),
-                    ],
-                ],
+                        'hero' => $abilities->get(1)->hero->jsonSerialize()
+                    ]
+                ]
              ]);
     }
 
@@ -56,7 +58,7 @@ class AbilityControllerTest extends TestCase
                 'description' => $ability->description,
                 'is_ultimate' => $ability->is_ultimate,
                 'url' => $ability->url,
-                'hero' => $ability->hero->jsonSerialize(),
+                'hero' => $ability->hero->jsonSerialize()
              ]);
     }
 }

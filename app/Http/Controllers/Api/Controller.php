@@ -12,11 +12,4 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
-
-    protected $numberResults;
-
-    public function __construct(Request $request)
-    {
-        $this->numberResults = (int) $request->get('limit', 50);
-    }
 }

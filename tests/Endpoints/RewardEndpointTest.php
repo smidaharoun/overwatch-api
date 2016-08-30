@@ -3,9 +3,11 @@
 use App\Hero;
 use App\Event;
 use App\Reward;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class RewardControllerTest extends TestCase
+class RewardEndpointTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -30,7 +32,7 @@ class RewardControllerTest extends TestCase
                         'cost' => $rewards->first()->cost,
                         'url' => $rewards->first()->url,
                         'type' => $rewards->first()->type->jsonSerialize(),
-                        'quality' => $rewards->first()->quality->jsonSerialize(),
+                        'quality' => $rewards->first()->quality->jsonSerialize()
                     ],
                     [
                         'id' => $rewards->get(1)->id,
@@ -38,9 +40,9 @@ class RewardControllerTest extends TestCase
                         'cost' => $rewards->get(1)->cost,
                         'url' => $rewards->get(1)->url,
                         'type' => $rewards->get(1)->type->jsonSerialize(),
-                        'quality' => $rewards->get(1)->quality->jsonSerialize(),
-                    ],
-                ],
+                        'quality' => $rewards->get(1)->quality->jsonSerialize()
+                    ]
+                ]
              ]);
     }
 
@@ -51,7 +53,7 @@ class RewardControllerTest extends TestCase
     {
         $reward = factory(Reward::class)->create([
             'hero_id' => factory(Hero::class)->create()->id,
-            'event_id' => factory(Event::class)->create()->id,
+            'event_id' => factory(Event::class)->create()->id
         ]);
 
         $this->json('GET', sprintf('/api/v1/reward/%s', $reward->id))
@@ -63,7 +65,7 @@ class RewardControllerTest extends TestCase
                 'type' => $reward->type,
                 'hero' => $reward->hero->jsonSerialize(),
                 'quality' => $reward->quality->jsonSerialize(),
-                'event' => $reward->event->jsonSerialize(),
+                'event' => $reward->event->jsonSerialize()
              ]);
     }
 }

@@ -10,6 +10,11 @@ use App\Achievement;
 
 class IndexController extends Controller
 {
+    /**
+     * The homepage
+     * 
+     * @return Illuminate\Http\Response
+     */
     public function index()
     {
         return view('index.index', [
@@ -21,6 +26,9 @@ class IndexController extends Controller
         ]);
     }
 
+    /**
+     * @return Illuminate\Http\Response
+     */
     public function contribution()
     {
         return view('index.contribution');

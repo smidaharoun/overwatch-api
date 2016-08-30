@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Contracts\Model\ListableInterface;
+use App\Contracts\Model\ShowableInterface;
 
-class Ability extends Model
+class Ability extends Model implements ListableInterface, ShowableInterface
 {
     public $timestamps = false;
 
@@ -24,6 +26,19 @@ class Ability extends Model
 
     public function getUrlAttribute()
     {
-        return $this->attributes['url'] = route('api.ability.show', ['id' => $this->attributes['id']]);
+        return $this->attributes['url'] = route(
+            'api.show', 
+            ['resource' => 'ability', 'id' => $this->attributes['id']]
+        );
+    }
+
+    public function scopeList($query)
+    {
+        return $query->with('hero');
+    }
+
+    public function scopeShow($query)
+    {
+        return $query->with('hero');
     }
 }

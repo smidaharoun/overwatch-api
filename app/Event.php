@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Contracts\Model\ListableInterface;
+use App\Contracts\Model\ShowableInterface;
 
-class Event extends Model
+class Event extends Model implements ListableInterface, ShowableInterface
 {
     public $timestamps = false;
 
@@ -22,6 +24,19 @@ class Event extends Model
 
     public function getUrlAttribute()
     {
-        return $this->attributes['url'] = route('api.event.show', ['id' => $this->attributes['id']]);
+        return $this->attributes['url'] = route(
+            'api.show', 
+            ['resource' => 'event', 'id' => $this->attributes['id']]
+        );
+    }
+
+    public function scopeShow($query)
+    {
+        return $query->with('maps', 'rewards');
+    }
+
+    public function scopeList($query)
+    {
+        return $query;
     }
 }

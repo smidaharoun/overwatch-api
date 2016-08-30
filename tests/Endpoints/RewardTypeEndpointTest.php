@@ -1,9 +1,11 @@
 <?php
 
 use App\RewardType;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class RewardTypeControllerTest extends TestCase
+class RewardTypeEndpointTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -24,13 +26,13 @@ class RewardTypeControllerTest extends TestCase
                 'data' => [
                     [
                         'id' => $rewardTypes->first()->id,
-                        'name' => $rewardTypes->first()->name,
+                        'name' => $rewardTypes->first()->name
                     ],
                     [
                         'id' => $rewardTypes->get(1)->id,
-                        'name' => $rewardTypes->get(1)->name,
-                    ],
-                ],
+                        'name' => $rewardTypes->get(1)->name
+                    ]
+                ]
              ]);
     }
 
@@ -44,7 +46,7 @@ class RewardTypeControllerTest extends TestCase
         $this->json('GET', sprintf('/api/v1/reward-type/%s', $rewardType->id))
              ->seeJsonEquals([
                 'id' => $rewardType->id,
-                'name' => $rewardType->name,
+                'name' => $rewardType->name
              ]);
     }
 }

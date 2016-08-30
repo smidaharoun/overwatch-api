@@ -4,19 +4,31 @@ namespace App\Http\Controllers\Api;
 
 class IndexController extends Controller
 {
+    /**
+     * API directory list
+     *
+     * @todo Need a better way of displaying these, i.e. a dynamic way!
+     * 
+     * @return array
+     */
     public function index()
     {
-        $response = [];
-        $routes = \Route::getRoutes()->get('GET');
-        uasort($routes, function ($a, $b) {
-            return strcmp($a->getName(), $b->getName());
-        });
-        foreach ($routes as $path => $route) {
-            if (in_array('api', $route->middleware())) {
-                $response[$route->getName()] = app('url')->to('/').'/'.$path;
-            }
-        }
-
-        return $response;
+        return [
+            'api.ability.index' => url('/api/v1/ability'),
+            'api.ability.show' => url('/api/v1/ability/{ability}'),
+            'api.achievement.index' => url('/api/v1/achievement'),
+            'api.achievement.show' => url('/api/v1/achievement/{achievement}'),
+            'api.event.index' => url('/api/v1/event'),
+            'api.event.show' => url('/api/v1/event/{event}'),
+            'api.hero.index' => url('/api/v1/hero'),
+            'api.hero.show' => url('/api/v1/hero/{hero}'),
+            'api.index' => url('/api/v1'),
+            'api.map.index' => url('/api/v1/map'),
+            'api.map.show' => url('/api/v1/map/{map}'),
+            'api.reward.index' => url('/api/v1/reward'),
+            'api.reward.show' => url('/api/v1/reward/{reward}'),
+            'api.rewardType.index' => url('/api/v1/reward-type'),
+            'api.rewardType.show' => url('/api/v1/reward-type/{reward_type}'),
+        ];
     }
 }

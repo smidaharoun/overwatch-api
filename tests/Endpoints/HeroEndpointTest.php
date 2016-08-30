@@ -4,9 +4,11 @@ use App\Hero;
 use App\Role;
 use App\Ability;
 use App\SubRole;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class HeroControllerTest extends TestCase
+class HeroEndpointTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -38,7 +40,7 @@ class HeroControllerTest extends TestCase
                         'affiliation' => $heroes->first()->affiliation,
                         'base_of_operations' => $heroes->first()->base_of_operations,
                         'difficulty' => $heroes->first()->difficulty,
-                        'url' => $heroes->first()->url,
+                        'url' => $heroes->first()->url
                     ],
                     [
                         'id' => $heroes->get(1)->id,
@@ -53,9 +55,9 @@ class HeroControllerTest extends TestCase
                         'affiliation' => $heroes->get(1)->affiliation,
                         'base_of_operations' => $heroes->get(1)->base_of_operations,
                         'difficulty' => $heroes->get(1)->difficulty,
-                        'url' => $heroes->get(1)->url,
-                    ],
-                ],
+                        'url' => $heroes->get(1)->url
+                    ]
+                ]
              ]);
     }
 
@@ -65,14 +67,14 @@ class HeroControllerTest extends TestCase
     public function testHeroShow()
     {
         $hero = factory(Hero::class)->create([
-            'role_id' => factory(Role::class)->create()->id,
+            'role_id' => factory(Role::class)->create()->id
         ]);
         $hero->subRoles()->saveMany(factory(SubRole::class, 2)->make());
 
         factory(Ability::class, 10)->create([
-            'hero_id' => $hero->id,
+            'hero_id' => $hero->id
         ]);
-
+        
         $hero->load('role', 'subRoles', 'abilities', 'rewards.type', 'rewards.quality', 'rewards.event');
 
         $this->json('GET', sprintf('/api/v1/hero/%s', $hero->id))
@@ -93,7 +95,7 @@ class HeroControllerTest extends TestCase
                 'role' => $hero->role->jsonSerialize(),
                 'sub_roles' => $hero->subRoles->jsonSerialize(),
                 'abilities' => $hero->abilities->jsonSerialize(),
-                'rewards' => $hero->rewards->jsonSerialize(),
+                'rewards' => $hero->rewards->jsonSerialize()
              ]);
     }
 }
