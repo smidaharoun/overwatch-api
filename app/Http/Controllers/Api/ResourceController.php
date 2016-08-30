@@ -28,8 +28,8 @@ class ResourceController extends Controller
      * @param  App\Contracts\Model\ShowableInterface $resource
      * @return App\Contracts\Model\ShowableInterface
      */
-    public function showResource(ShowableInterface $resource)
+    public function showResource(ShowableInterface $resource, $id)
     {
-        return $resource->show()->first();
+        return $resource->where('id', $id)->show()->first();
     }
 }
