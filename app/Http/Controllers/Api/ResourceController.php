@@ -12,7 +12,7 @@ class ResourceController extends Controller
      * List a resource within a pagination envelope.
      *
      * @param  App\Contracts\Model\ListableInterface $resource
-     * @param  Request           $request
+     * @param  Illuminate\Http\Request $request
      * @return Illuminate\Pagination\LengthAwarePaginator
      */
     public function listResource(ListableInterface $resource, Request $request)
