@@ -26,6 +26,7 @@ class ResourceController extends Controller
      * Show a resource.
      *
      * @param  App\Contracts\Model\ShowableInterface $resource
+     * @param  int $id
      * @return App\Contracts\Model\ShowableInterface
      */
     public function showResource(ShowableInterface $resource, $id)
