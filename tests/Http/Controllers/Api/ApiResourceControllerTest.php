@@ -99,4 +99,24 @@ class ApiResourceControllerTest extends TestCase
 
         $this->assertResponseStatus(404);
     }
+
+    /**
+     * @return void
+     */
+    public function testResourceListPagination()
+    {
+        $heroes = factory(Hero::class, 201)->create();
+
+        $this->call('GET', sprintf('/api/v1/hero?limit=%d&page=%d', 20, 2));
+
+        $this->assertResponseOk();
+
+        $this->seeJson([
+            'total' => $heroes->count(),
+            'first' => url('/api/v1/hero?page=1'),
+            'next' => url('/api/v1/hero?page=3'),
+            'previous' => url('/api/v1/hero?page=1'),
+            'last' => url('/api/v1/hero?page=11')
+        ]);
+    }
 }
