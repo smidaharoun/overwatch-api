@@ -119,4 +119,13 @@ class ApiResourceControllerTest extends TestCase
             'last' => url('/api/v1/hero?page=11'),
         ]);
     }
+
+    public function testResourceNotFoundReturnsPageNotFound()
+    {
+        $heroes = factory(Hero::class, 5)->create();
+
+        $this->call('GET', sprintf('/api/v1/hero/%d', 5000));
+
+        $this->assertResponseStatus(404);
+    }
 }
