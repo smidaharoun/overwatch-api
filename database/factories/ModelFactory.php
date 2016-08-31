@@ -106,3 +106,9 @@ $factory->define(App\MapStage::class, function (Faker\Generator $faker) {
         'name' => $faker->md5,
     ];
 });
+
+$factory->define(App\Platform::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->md5,
+    ];
+});

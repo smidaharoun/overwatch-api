@@ -41,6 +41,7 @@ class Importer
         'reward_types',
         'rewards',
         'achievements',
+        'platforms',
     ];
 
     /**

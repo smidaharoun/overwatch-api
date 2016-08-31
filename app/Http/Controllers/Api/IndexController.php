@@ -25,6 +25,8 @@ class IndexController extends Controller
             'api.index' => url('/api/v1'),
             'api.map.index' => url('/api/v1/map'),
             'api.map.show' => url('/api/v1/map/{map}'),
+            'api.platform.index' => url('/api/v1/platform'),
+            'api.platform.show' => url('/api/v1/platform/{platform}'),
             'api.reward.index' => url('/api/v1/reward'),
             'api.reward.show' => url('/api/v1/reward/{reward}'),
             'api.rewardType.index' => url('/api/v1/reward-type'),
