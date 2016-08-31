@@ -5,10 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Contracts\Model\ListableInterface;
 use App\Contracts\Model\ShowableInterface;
+use App\Concerns\Model\HasUrlAttributeTrait;
 
 class Map extends Model implements ListableInterface, ShowableInterface
 {
+    use HasUrlAttributeTrait;
+
     public $timestamps = false;
+
+    protected $resource = 'map';
 
     protected $hidden = ['map_mode_id', 'event_id'];
 
@@ -27,14 +32,6 @@ class Map extends Model implements ListableInterface, ShowableInterface
     public function event()
     {
         return $this->belongsTo('App\Event');
-    }
-
-    public function getUrlAttribute()
-    {
-        return $this->attributes['url'] = route(
-            'api.show',
-            ['resource' => 'map', 'id' => $this->attributes['id']]
-        );
     }
 
     public function scopeList($query)

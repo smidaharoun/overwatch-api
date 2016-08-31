@@ -5,10 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Contracts\Model\ListableInterface;
 use App\Contracts\Model\ShowableInterface;
+use App\Concerns\Model\HasUrlAttributeTrait;
 
 class Hero extends Model implements ListableInterface, ShowableInterface
 {
+    use HasUrlAttributeTrait;
+
     public $timestamps = false;
+
+    protected $resource = 'hero';
 
     protected $hidden = ['role_id'];
 
@@ -41,14 +46,6 @@ class Hero extends Model implements ListableInterface, ShowableInterface
     public function rewards()
     {
         return $this->hasMany('App\Reward');
-    }
-
-    public function getUrlAttribute()
-    {
-        return $this->attributes['url'] = route(
-            'api.show',
-            ['resource' => 'hero', 'id' => $this->attributes['id']]
-        );
     }
 
     public function scopeList($query)

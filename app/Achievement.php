@@ -5,10 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Contracts\Model\ListableInterface;
 use App\Contracts\Model\ShowableInterface;
+use App\Concerns\Model\HasUrlAttributeTrait;
 
 class Achievement extends Model implements ListableInterface, ShowableInterface
 {
+    use HasUrlAttributeTrait;
+    
     public $timestamps = false;
+
+    protected $resource = 'achievement';
 
     protected $hidden = ['hero_id', 'reward_id'];
 
@@ -22,14 +27,6 @@ class Achievement extends Model implements ListableInterface, ShowableInterface
     public function reward()
     {
         return $this->belongsTo('App\Reward');
-    }
-
-    public function getUrlAttribute()
-    {
-        return $this->attributes['url'] = route(
-            'api.show',
-            ['resource' => 'achievement', 'id' => $this->attributes['id']]
-        );
     }
 
     public function scopeList($query)

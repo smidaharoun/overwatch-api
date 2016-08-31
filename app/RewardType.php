@@ -5,18 +5,17 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Contracts\Model\ListableInterface;
 use App\Contracts\Model\ShowableInterface;
+use App\Concerns\Model\HasUrlAttributeTrait;
 
 class RewardType extends Model implements ListableInterface, ShowableInterface
 {
+    use HasUrlAttributeTrait;
+
     public $timestamps = false;
 
-    public function getUrlAttribute()
-    {
-        return $this->attributes['url'] = route(
-            'api.show',
-            ['resource' => 'reward-type', 'id' => $this->attributes['id']]
-        );
-    }
+    protected $resource = 'reward-type';
+
+    protected $appends = ['url'];
 
     public function scopeList($query)
     {

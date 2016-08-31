@@ -25,10 +25,12 @@ class RewardTypeEndpointTest extends TestCase
                     [
                         'id' => $rewardTypes->first()->id,
                         'name' => $rewardTypes->first()->name,
+                        'url' => $rewardTypes->first()->url,
                     ],
                     [
                         'id' => $rewardTypes->get(1)->id,
                         'name' => $rewardTypes->get(1)->name,
+                        'url' => $rewardTypes->get(1)->url,
                     ],
                 ],
              ]);
@@ -45,6 +47,7 @@ class RewardTypeEndpointTest extends TestCase
              ->seeJsonEquals([
                 'id' => $rewardType->id,
                 'name' => $rewardType->name,
+                'url' => $rewardType->url,
              ]);
     }
 }
