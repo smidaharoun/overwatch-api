@@ -25,8 +25,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        Route::model('reward-type', 'App\RewardType');
-
         $this->bindResourceModels($router);
 
         parent::boot($router);
