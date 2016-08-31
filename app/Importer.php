@@ -3,16 +3,10 @@
 namespace App;
 
 use DB;
-use Illuminate\Contracts\Console\Kernel;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class Importer
 {
-    /**
-     * @var Illuminate\Contracts\Console\Kernel
-     */
-    protected $artisan;
-
     /**
      * @var Symfony\Component\Console\Output\OutputInterface
      */
@@ -46,11 +40,9 @@ class Importer
 
     /**
      * @param Symfony\Component\Console\Output\ConsoleOutput $output
-     * @param Illuminate\Contracts\Console\Kernel $kernel
      */
-    public function __construct(OutputInterface $output, Kernel $artisan)
+    public function __construct(OutputInterface $output)
     {
-        $this->artisan = $artisan;
         $this->output = $output;
     }
 
@@ -59,8 +51,6 @@ class Importer
      */
     public function importAll()
     {
-        $this->refresh();
-
         foreach ($this->tables as $table) {
             $filename = $this->getFilenameForTable($table);
 
@@ -87,17 +77,6 @@ class Importer
 
             $this->output->writeln('Imported '.count($data).' records for '.$table);
         }
-    }
-
-    /**
-     * Refresh the dataset by resetting and re-running the migrations.
-     *
-     * @return void
-     */
-    public function refresh()
-    {
-        $this->artisan->call('migrate:reset');
-        $this->artisan->call('migrate');
     }
 
     /**

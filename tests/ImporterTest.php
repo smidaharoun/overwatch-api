@@ -13,10 +13,7 @@ class ImporterTest extends TestCase
     {
         parent::setUp();
 
-        $artisan = $this->app->make('Illuminate\Contracts\Console\Kernel');
-        $importer = new Importer(new NullOutput, $artisan);
-
-        $this->importer = $importer;
+        $this->importer = new Importer(new NullOutput);
     }
 
     /**
@@ -30,20 +27,6 @@ class ImporterTest extends TestCase
         $this->markTestIncomplete('SQLite inconsistencies');
 
         $importer->importAll();
-    }
-
-    /**
-     * @return void
-     */
-    public function testRefresh()
-    {
-        factory(Hero::class, 50)->create();
-
-        $this->assertCount(50, Hero::all());
-
-        $this->importer->refresh();
-
-        $this->assertCount(0, Hero::all());
     }
 
     /**

@@ -71,11 +71,32 @@ Setup the database using the Laravel Artisan tool from the project root:
 
 This will create the database structure, and uses Laravel [migrations](https://laravel.com/docs/migrations).
 
+### Database Refresh
+
+You'll often need to reset the database before re-importing, otherwise you'll get unique constraint errors from MySQL. To do so, run:
+
+    php artisan migrate:refresh
+
+This will revert all migrations and re-run them, effectively **wiping your database clean**.
+
 ### Importing Data
 
-The data is stored in CSV format and can be found in `resources/data`. To remove all existing data and import afresh, from the project root run:
+The data is stored in CSV format and can be found in `resources/data`. To import the data, run the following command from the project root:
 
     php artisan import
+
+If you receive an integrity constraint violation error, check you have refreshed your database (see above).
+
+### Deploy Script
+
+There's a simple deploy script in the root directory aptly named `deploy.sh`. This will:
+
+- Pull the latest changes from the origin master branch;
+- Install the non-development dependencies using composer;
+- **Force refresh the database**;
+- Import the dataset
+
+This script must be run from the root directory of the project.
 
 ## Contribution
 
