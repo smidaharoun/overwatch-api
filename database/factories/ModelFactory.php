@@ -70,7 +70,7 @@ $factory->define(App\Reward::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Achievement::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->word,
+        'name' => $faker->md5,
         'description' => $faker->paragraph,
         'hero_id' => null,
         'reward_id' => factory(App\Reward::class)->create()->id,
