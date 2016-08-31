@@ -1,7 +1,11 @@
 <?php
 
 use App\Hero;
+use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
+use App\Http\Controllers\Api\ResourceController;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ApiResourceControllerTest extends TestCase
 {
@@ -61,6 +65,37 @@ class ApiResourceControllerTest extends TestCase
     public function testShowInvalidResourceReturnsPageNotFound()
     {
         $this->call('GET', '/api/v1/cake/99');
+
+        $this->assertResponseStatus(404);
+    }
+
+    /**
+     * @return void
+     */
+    public function testNonShowableResourceCannotBeShown()
+    {
+        $model = Mockery::mock(Model::class);
+
+        $this->setExpectedException(NotFoundHttpException::class);
+
+        $controller = new ResourceController();
+        $controller->showResource($model, 1);
+
+        $this->assertResponseStatus(404);
+    }
+
+    /**
+     * @return void
+     */
+    public function testNonListableResourceCannotBeListed()
+    {
+        $model = Mockery::mock(Model::class);
+        $request = Mockery::mock(Request::class);
+
+        $this->setExpectedException(NotFoundHttpException::class);
+
+        $controller = new ResourceController();
+        $controller->listResource($model, $request);
 
         $this->assertResponseStatus(404);
     }
