@@ -40,6 +40,6 @@ class ResourceController extends Controller
             abort(404);
         }
 
-        return $resource->where('id', $id)->show()->first();
+        return $resource->where('id', $id)->show()->firstOrFail();
     }
 }
