@@ -41,7 +41,7 @@
             </div>
             <div id="footer" class="row">
                 <div class="twelve columns">
-                    Built by <a href="http://jamesmcfadden.co.uk">James</a>
+                    Built by <a href="http://jamesmcfadden.co.uk?utm_source=overwatch-api.net">James</a>
                 </div>
             </div>
         </div>
