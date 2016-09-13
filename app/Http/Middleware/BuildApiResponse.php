@@ -4,12 +4,13 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class BuildApiResponse
 {
     /**
-     * Handle an incoming request.
+     * Convert the response to a JSON response.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -18,23 +19,30 @@ class BuildApiResponse
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        $response = $next($request);
+        $originalResponse = $next($request);
+        $content = $originalResponse->getOriginalContent();
 
-        if ($response instanceof Response) {
-            $original = $response->getOriginalContent();
+        if ($originalResponse instanceof Response) {
             switch (true) {
-                case $original instanceof LengthAwarePaginator:
-                    $response->setContent([
-                        'total' => $original->total(),
-                        'first' => $original->url(1),
-                        'next' => $original->nextPageUrl(),
-                        'previous' => $original->previousPageUrl(),
-                        'last' => $original->url($original->lastPage()),
-                        'data' => $original->getCollection()->toArray(),
-                    ]);
+                case $content instanceof LengthAwarePaginator:
+                    $content = [
+                        'total' => $content->total(),
+                        'first' => $content->url(1),
+                        'next' => $content->nextPageUrl(),
+                        'previous' => $content->previousPageUrl(),
+                        'last' => $content->url($content->lastPage()),
+                        'data' => $content->getCollection()->toArray(),
+                    ];
                     break;
             }
         }
+
+        $response = new JsonResponse(
+            $content,
+            $originalResponse->getStatusCode(),
+            $originalResponse->headers->all(),
+            JSON_PRETTY_PRINT
+        );
         $response->headers->set('Access-Control-Allow-Origin', '*');
 
         return $response;
