@@ -19,10 +19,10 @@ class BuildApiResponse
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        $originalResponse = $next($request);
-        $content = $originalResponse->getOriginalContent();
+        $response = $next($request);
+        $content = $response->getOriginalContent();
 
-        if ($originalResponse instanceof Response) {
+        if ($response instanceof Response) {
             switch (true) {
                 case $content instanceof LengthAwarePaginator:
                     $content = [
@@ -36,13 +36,6 @@ class BuildApiResponse
                     break;
             }
         }
-
-        $response = new JsonResponse(
-            $content,
-            $originalResponse->getStatusCode(),
-            $originalResponse->headers->all(),
-            JSON_PRETTY_PRINT
-        );
         $response->headers->set('Access-Control-Allow-Origin', '*');
 
         return $response;
