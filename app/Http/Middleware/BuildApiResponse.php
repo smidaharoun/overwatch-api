@@ -32,6 +32,7 @@ class BuildApiResponse
                         'last' => $content->url($content->lastPage()),
                         'data' => $content->getCollection()->toArray(),
                     ];
+                    $response->setContent($content);
                     break;
             }
         }
