@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use Route;
+use ReflectionException;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
@@ -20,27 +22,27 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
-    public function boot(Router $router)
+    public function boot()
     {
+        $router = $this->app->make('router');
+
         $this->bindResourceModels($router);
 
-        parent::boot($router);
+        parent::boot();
     }
 
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
-    public function map(Router $router)
+    public function map()
     {
-        $this->mapWebRoutes($router);
+        $this->mapWebRoutes();
 
-        //
+        $this->mapApiRoutes();
     }
 
     /**
@@ -48,15 +50,33 @@ class RouteServiceProvider extends ServiceProvider
      *
      * These routes all receive session state, CSRF protection, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
-    protected function mapWebRoutes(Router $router)
+    protected function mapWebRoutes()
     {
-        $router->group([
-            'namespace' => $this->namespace, 'middleware' => 'web',
+        Route::group([
+            'middleware' => 'web',
+            'namespace' => $this->namespace,
         ], function ($router) {
-            require app_path('Http/routes.php');
+            require base_path('routes/web.php');
+        });
+    }
+
+    /**
+     * Define the "api" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiRoutes()
+    {
+        Route::group([
+            'middleware' => 'api',
+            'namespace' => $this->namespace,
+            'prefix' => 'api',
+        ], function ($router) {
+            require base_path('routes/api.php');
         });
     }
 
@@ -68,11 +88,12 @@ class RouteServiceProvider extends ServiceProvider
      *
      * Example bindings:
      * -----------------
-     * hero -> App\Hero
-     * reward-type -> App\RewardType
+     * item -> App\Model\Item
+     * item-type -> App\Model\ItemType
      *
-     * @param  Router $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     protected function bindResourceModels(Router $router)
     {
@@ -84,9 +105,9 @@ class RouteServiceProvider extends ServiceProvider
             });
 
             try {
-                return $this->app->make('App\\'.implode($parts));
-            } catch (\ReflectionException $e) {
-                abort(404);
+                return $this->app->make('App\\Models\\'.implode($parts));
+            } catch (ReflectionException $e) {
+                throw new NotFoundHttpException;
             }
         });
     }

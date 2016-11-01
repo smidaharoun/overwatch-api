@@ -1,6 +1,6 @@
 <?php
 
-use App\RewardType;
+use App\Models\RewardType;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class RewardTypeEndpointTest extends TestCase

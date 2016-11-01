@@ -2,8 +2,12 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\Importers\CsvImporter;
 use Illuminate\Routing\UrlGenerator;
+use Illuminate\Support\ServiceProvider;
+use App\Contracts\Importer\ImporterInterface;
+use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\Console\Output\ConsoleOutputInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,15 +31,24 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'Symfony\Component\Console\Output\OutputInterface',
-            'Symfony\Component\Console\Output\ConsoleOutput'
+            ImporterInterface::class,
+            CsvImporter::class
+        );
+
+        $this->app->bind(
+            ConsoleOutputInterface::class,
+            ConsoleOutput::class
         );
     }
 
+    /**
+     * @return array
+     */
     public function provides()
     {
         return [
-            'Symfony\Component\Console\Output\ConsoleOutputInterface',
+            ImporterInterface::class,
+            ConsoleOutputInterface::class,
         ];
     }
 }

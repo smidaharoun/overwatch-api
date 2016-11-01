@@ -1,6 +1,6 @@
 <?php
 
-use App\Hero;
+use App\Models\Hero;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\Api\ResourceController;

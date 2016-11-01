@@ -1,6 +1,6 @@
 <?php
 
-use App\GameMode;
+use App\Models\GameMode;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class GameModeEndpointTest extends TestCase

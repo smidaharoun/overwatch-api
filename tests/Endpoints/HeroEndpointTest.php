@@ -1,9 +1,9 @@
 <?php
 
-use App\Hero;
-use App\Role;
-use App\Ability;
-use App\SubRole;
+use App\Models\Hero;
+use App\Models\Role;
+use App\Models\Ability;
+use App\Models\SubRole;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class HeroEndpointTest extends TestCase

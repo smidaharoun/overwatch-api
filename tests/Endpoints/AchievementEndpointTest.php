@@ -1,7 +1,7 @@
 <?php
 
-use App\Hero;
-use App\Achievement;
+use App\Models\Hero;
+use App\Models\Achievement;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class AchievementEndpointTest extends TestCase

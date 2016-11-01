@@ -1,8 +1,8 @@
 <?php
 
-use App\Map;
-use App\Event;
-use App\Reward;
+use App\Models\Map;
+use App\Models\Event;
+use App\Models\Reward;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class EventEndpointTest extends TestCase

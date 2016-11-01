@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -8,7 +8,7 @@ use App\Contracts\Model\ListableInterface;
 use App\Contracts\Model\ShowableInterface;
 use App\Concerns\Model\HasUrlAttributeTrait;
 
-class BrawlType extends Model implements ListableInterface, ShowableInterface
+class Brawl extends Model implements ListableInterface, ShowableInterface
 {
     use HasUrlAttributeTrait;
 
@@ -18,6 +18,18 @@ class BrawlType extends Model implements ListableInterface, ShowableInterface
     public $timestamps = false;
 
     /**
+     * @var string
+     */
+    protected $resource = 'brawl';
+
+    /**
+     * @var array
+     */
+    protected $hidden = [
+        'brawl_type_id',
+    ];
+
+    /**
      * @var array
      */
     protected $appends = [
@@ -25,33 +37,28 @@ class BrawlType extends Model implements ListableInterface, ShowableInterface
     ];
 
     /**
-     * @var string
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    protected $resource = 'brawl-type';
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function brawls()
+    public function brawlType()
     {
-        return $this->hasMany(Brawl::class);
+        return $this->belongsTo(BrawlType::class);
     }
 
     /**
-     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeList(Builder $query)
     {
-        return $query;
+        return $query->with('brawlType');
     }
 
     /**
-     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeShow(Builder $query)
     {
-        return $query->with('brawls');
+        return $query->with('brawlType');
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-use App\Brawl;
-use App\BrawlType;
+use App\Models\Brawl;
+use App\Models\BrawlType;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class BrawlTypeEndpointTest extends TestCase

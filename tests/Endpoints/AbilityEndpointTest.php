@@ -1,6 +1,6 @@
 <?php
 
-use App\Ability;
+use App\Models\Ability;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class AbilityEndpointTest extends TestCase

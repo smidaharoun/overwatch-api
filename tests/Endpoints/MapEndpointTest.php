@@ -1,8 +1,8 @@
 <?php
 
-use App\Map;
-use App\Event;
-use App\MapStage;
+use App\Models\Map;
+use App\Models\Event;
+use App\Models\MapStage;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class MapEndpointTest extends TestCase

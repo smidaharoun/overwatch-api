@@ -1,10 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Currency extends Model
+class Role extends Model
 {
+    /**
+     * @var bool
+     */
     public $timestamps = false;
 }

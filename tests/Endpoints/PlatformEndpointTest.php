@@ -1,6 +1,6 @@
 <?php
 
-use App\Platform;
+use App\Models\Platform;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class PlatformEndpointTest extends TestCase

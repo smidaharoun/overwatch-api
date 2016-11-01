@@ -1,12 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SubRole extends Model
+class Currency extends Model
 {
+    /**
+     * @var bool
+     */
     public $timestamps = false;
-
-    protected $hidden = ['pivot'];
 }

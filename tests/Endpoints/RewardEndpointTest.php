@@ -1,8 +1,8 @@
 <?php
 
-use App\Hero;
-use App\Event;
-use App\Reward;
+use App\Models\Hero;
+use App\Models\Event;
+use App\Models\Reward;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class RewardEndpointTest extends TestCase
