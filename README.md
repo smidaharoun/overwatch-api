@@ -11,31 +11,30 @@ The API is hosted at [overwatch-api.net](https://overwatch-api.net):
 
     > curl https://overwatch-api.net/api/v1/map/9
     {  
-       "id":9,
-       "name":"Nepal",
-       "location":"Nepal",
-       "url":"https://overwatch-api.net/api/v1/map/9",
-       "mode":{  
-          "id":2,
-          "name":"Control"
-       },
-       "stages":[  
-          {  
-             "id":7,
-             "name":"Village"
-          },
-          {  
-             "id":8,
-             "name":"Shrine"
-          },
-          {  
-             "id":9,
-             "name":"Sanctum"
-          }
-       ]
+        "id":9,
+        "name":"Route 66",
+        "location":"Route 66, United States of America",
+        "url":"https://overwatch-api.net/api/v1/map/9",
+        "mode":{  
+            "id":3,
+            "name":"Escort"
+        },
+        "stages":[  
+            {  
+                "id":7,
+                "name":"Village"
+            },
+            {  
+                "id":8,
+                "name":"Shrine"
+            },
+            {  
+                "id":9,
+                "name":"Sanctum"
+            }
+        ],
+        "event":null
     }
-
-
 
 ## Documentation
 
@@ -133,4 +132,4 @@ Please open a pull request on GitHub.
 
 ## License
 
-View the license file [here](https://github.com/jamesmcfadden/overwatch-api/blob/master/LICENSE).
+View the license file [here](https://github.com/jamesmcfadden/overwatch-api/blob/master/LICENSE.md).
