@@ -26,7 +26,6 @@ class CreateRewardsTable extends Migration
             $table->foreign('currency_id')->references('id')->on('currencies');
             $table->foreign('quality_id')->references('id')->on('qualities');
 
-            $table->unique(['name', 'reward_type_id', 'hero_id']);
             $table->index('name');
         });
     }
