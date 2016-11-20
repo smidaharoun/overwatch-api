@@ -5,7 +5,7 @@ namespace App\Importers;
 use Illuminate\Database\Connection;
 use App\Contracts\Importer\ImporterInterface;
 use App\Exceptions\Importer\ImporterException;
-use Symfony\Component\Console\Output\ConsoleOutputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class CsvImporter implements ImporterInterface
 {
@@ -15,15 +15,15 @@ class CsvImporter implements ImporterInterface
     protected $db;
 
     /**
-     * @var \Symfony\Component\Console\Output\ConsoleOutputInterface
+     * @var \Symfony\Component\Console\Output\OutputInterface
      */
     protected $output;
 
     /**
      * @param \Illuminate\Database\Connection $db
-     * @param Symfony\Component\Console\Output\ConsoleOutputInterface $output
+     * @param Symfony\Component\Console\Output\OutputInterface $output
      */
-    public function __construct(Connection $db, ConsoleOutputInterface $output)
+    public function __construct(Connection $db, OutputInterface $output)
     {
         $this->db = $db;
         $this->output = $output;
@@ -59,6 +59,8 @@ class CsvImporter implements ImporterInterface
             $lines = explode(PHP_EOL, $csvData);
             $headers = str_getcsv(array_shift($lines));
             $data = [];
+            $chunk = 499;
+            $round = 0;
 
             foreach ($lines as $i => $line) {
                 foreach (str_getcsv($line, ',') as $x => $item) {
@@ -67,10 +69,16 @@ class CsvImporter implements ImporterInterface
                     }
                     $data[$i][$headers[$x]] = $item;
                 }
+                if ($round >= $chunk) {
+                    $this->db->table($table)->insert($data);
+                    $data = [];
+                    $round = 0;
+                }
+                $round++;
             }
             $this->db->table($table)->insert($data);
 
-            $this->output->writeln(sprintf('<info>Imported:</info> %d records for %s', count($data), $table));
+            $this->output->writeln(sprintf('<info>Imported:</info> %d records for %s', count($lines), $table));
         }
         $this->output->writeln(sprintf('<info>Finished importing %d data files</info>', count($paths)));
     }

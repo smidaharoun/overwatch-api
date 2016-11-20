@@ -7,7 +7,7 @@ use Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\ServiceProvider;
 use App\Contracts\Importer\ImporterInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Console\Output\ConsoleOutputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            ConsoleOutputInterface::class,
+            OutputInterface::class,
             ConsoleOutput::class
         );
     }
@@ -48,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
     {
         return [
             ImporterInterface::class,
-            ConsoleOutputInterface::class,
+            OutputInterface::class,
         ];
     }
 }
