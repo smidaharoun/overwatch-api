@@ -19,9 +19,10 @@ class ApiResourceControllerTest extends TestCase
         $heroes = factory(Hero::class, 50)->create();
         $hero = $heroes->get(2);
 
-        $this->call('GET', '/api/v1/hero');
+        $response = $this->call('GET', '/api/v1/hero');
 
         $this->assertResponseOk();
+        $this->assertEquals('*', $response->headers->get('Access-Control-Allow-Origin'));
 
         $this->seeJson([
             'id' => $hero->id,
@@ -38,9 +39,10 @@ class ApiResourceControllerTest extends TestCase
         $heroes = factory(Hero::class, 50)->create();
         $hero = $heroes->get(15);
 
-        $this->call('GET', sprintf('/api/v1/hero/%s', $hero->id));
+        $response = $this->call('GET', sprintf('/api/v1/hero/%s', $hero->id));
 
         $this->assertResponseOk();
+        $this->assertEquals('*', $response->headers->get('Access-Control-Allow-Origin'));
 
         $this->seeJson([
             'id' => $hero->id,
