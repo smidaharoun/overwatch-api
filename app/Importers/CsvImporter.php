@@ -59,7 +59,7 @@ class CsvImporter implements ImporterInterface
             $lines = explode(PHP_EOL, $csvData);
             $headers = str_getcsv(array_shift($lines));
             $data = [];
-            $chunk = 499;
+            $chunk = 50;
             $round = 0;
 
             foreach ($lines as $i => $line) {
